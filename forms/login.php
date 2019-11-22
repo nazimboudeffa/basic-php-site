@@ -1,7 +1,42 @@
-<form method="post" action="" id="loginForm" class="forms">
-	<label>Votre email :</label>
-	<input type="text" name="lemail" id="lemail" class="validate[custom[email]]" value="" tabindex="6" />
-	<label>Mot de passe :</label>
-	<input type="password" name="lpassword" id="lpassword" class="validate[minSize[6],maxSize[15]]" tabindex="7" />
-	<button type="submit" class="buttons right" name="function" value="login" id="login" tabindex="8">Connexion</button>
-</form>
+<style type="text/css">
+	.login-form {
+		width: 340px;
+    	margin: 50px auto;
+	}
+    .login-form form {
+    	margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+    .btn {
+        font-size: 15px;
+        font-weight: bold;
+    }
+</style>
+<div class="login-form">
+    <form action="../classes/actions.php" method="post">
+        <h2 class="text-center">Log in</h2>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        </div>
+        <div class="clearfix">
+            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+            <a href="#" class="pull-right">Forgot Password?</a>
+        </div>
+    </form>
+    <p class="text-center"><a href="signup.php">Create an Account</a></p>
+</div>

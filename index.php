@@ -3,7 +3,11 @@
   <head>
     <?php include 'includes/head.php' ?>
   </head>
-  <body>
+<body>
 
-  </body>
+  <?php include 'includes/header.php' ?>
+
+  <?php include 'includes/content.php' ?>
+
+</body>
 </html>

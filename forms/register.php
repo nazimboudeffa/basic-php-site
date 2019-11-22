@@ -1,16 +1,43 @@
-<h1>Inscription en 2 secondes</h1>
-<form method="post" action="" id="registerForm" class="forms">
-	<label>Votre pseudo :</label>
-	<input type="text" name="rusername" id="rusername" class="validate[required,minSize[3],custom[onlyLetterNumber]]" value="" tabindex="11"  />
-	<label>Votre email :</label>
-	<input type="text" name="remail" id="remail" class="validate[required,custom[email]]" value="" tabindex="12" />
-	<p class="moveup"><span>Utilisez une vraie adresse Email !</span><br />Votre mot de passe vous sera envoyé, vous permettant ensuite de voir vos mots et gérer votre profil.</p><br />
-
-	<label>Mot de passe :</label>
-	<input type="password" name="rpassword" id="rpassword" class="validate[minSize[6],maxSize[15]]" tabindex="13" />
-	<label>Confirmer mot de passe :</label>
-	<input type="password" name="rcpassword" id="rcpassword" class="validate[minSize[6],maxSize[15]]" tabindex="14"  />
-
-	<input type="checkbox" name="agree" id="agree" class="validate[required]" style="width:30px;" tabindex="15" /> J'accepte les <a href="index.html" target="_blank">conditions d'utilisation</a> du site.
-	<button type="submit" class="buttons right"  name="function" id="register" value="register" tabindex="16">Valider</button>
-</form>
+<style type="text/css">
+	.login-form {
+		width: 340px;
+    	margin: 50px auto;
+	}
+    .login-form form {
+    	margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+    .btn {
+        font-size: 15px;
+        font-weight: bold;
+    }
+</style>
+<div class="login-form">
+    <form action="../classes/actions.php" method="post">
+        <h2 class="text-center">Sign up</h2>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" required="required">
+        </div>
+				<div class="form-group">
+						<input type="text" class="form-control" placeholder="Email" required="required">
+				</div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" required="required">
+        </div>
+				<div class="form-group">
+						<input type="password" class="form-control" placeholder="Confirm Password" required="required">
+				</div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+        </div>
+    </form>
+</div>
