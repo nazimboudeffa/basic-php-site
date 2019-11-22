@@ -1,44 +1,8 @@
 $(document).ready(function(){
-
-  // FORGOTTEN EMAIL
-  $('#forgottenbutton').click(function(){
-  $('#forgottencontent').fadeIn('fast');
-  return false;
-  });
-
-  $('#forgotten').click(function(){
-  var email = $('#femail').val();
-  if(email === ''){  $('#update').html("Il manque un email");$('#update').fadeIn('fast');
-  updatefadeout(); return false; }
-  if( $("#femail").validationEngine('validateField', "#femail") === true ){ return false; };
-  $.ajax({
-     type: 'POST',
-     url: 'classes/actions.php',
-     data: { 'action' : 'login_forgotten', 'email' : email },
-     dataType : 'json',
-     beforeSend:function(){
-       $('#update').html("Verification de votre email...");
-       $('#update').fadeIn('fast');
-     },
-     success:function(data){
-        if( data.error === false){
-             $('#update').html("Un email avec votre nouveau mot de passe vous a été envoyé, vous le recevrez sous peu.");
-             updatefadeout();
-        }
-        if(data.error === true){
-             $('#update').html("Votre email n\'est pas dans notre base de données.");
-             updatefadeout();
-        }
-     },
-     error:function(data){
-      //alert("Il y a une erreur.  Priez reloader la page.");
-     }
-  });
-  return false;
-  });
-
   // REGISTER
   $('#registerForm').submit(function(){
+    console.log("click");
+
   var check = $(this).validationEngine('validate');
   if(check === false){ return false; }
   values = new Array();
@@ -52,17 +16,6 @@ $(document).ready(function(){
   if(values['rpassword'] == ''){  $('#update').html("Il manque un mot de passe");$('#update').fadeIn('fast');updatefadeout(); return false; }
   if(values['rpassword'] != values['rcpassword']){  $('#update').html("Les deux mots de passe doivent être identiques");$('#update').fadeIn('fast');updatefadeout(); return false; }
   if(values['agree'] == false){  $('#update').html("Merci d'accepter les conditions d'utilisation pour créer votre compte");$('#update').fadeIn('fast');updatefadeout(); return false; }
-  var checkeremail = $("#remail").validationEngine('validateField', "#remail");
-  if( checkeremail === true ){
-     $('#update').html("Il manque un pseudo");$('#update').fadeIn('fast');updatefadeout();
-    return false;
-  };
-  var checkerusername = $("#rusername").validationEngine('validateField', "#rusername");
-  if( checkerusername === true ){
-    $('#update').html("Il manque un email");$('#update').fadeIn('fast');updatefadeout();
-    return false;
-  };
-  var register_next = false;
   // Check the pseudo and email are not already existant
   $.ajax({
     type: 'POST',
@@ -74,6 +27,7 @@ $(document).ready(function(){
       $('#update').fadeIn('fast');
     },
     success:function(data){
+      console.log(data);
       if( data.error === false){
         //var is_it_ok = true;
         $('#update').html("Pseudo et email ok");
@@ -95,7 +49,7 @@ $(document).ready(function(){
               if ($("#word").length > 0){
                 return AddWord();
               } else {
-                window.location.href = "monprofile.php";
+                window.location.href = "profile.php";
               }
             }
             if(data.error === true){
@@ -105,7 +59,8 @@ $(document).ready(function(){
             }
           },
           error:function(data){
-            //alert("Il y a une erreur.  Priez reloader la page.");
+            console.log(data);
+            alert("Il y a une erreur.  Priez reloader la page.");
           }
         });
         ///////////////////////////////////////
@@ -124,7 +79,7 @@ $(document).ready(function(){
       }
     },
     error:function(data){
-      //alert("Il y a une erreur.  Priez reloader la page.");
+      alert("Il y a une erreur.  Priez reloader la page.");
     }
   });
   return false

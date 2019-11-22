@@ -15,8 +15,15 @@
       <li><a href="#">Page 2</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="signin.php"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></li>
+      <?php
+        if (isset($_SESSION['username'])){
+          echo '<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>';
+        } else {
+          echo '<li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>';
+          echo '<li><a href="signin.php"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></li>';
+        }
+      ?>
     </ul>
   </div>
 </nav>
+<span><div id="update">MESSAGES</div></span>

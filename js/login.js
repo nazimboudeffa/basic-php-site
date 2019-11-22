@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+  // LOGIN
   $('#loginForm').submit(function(){
   var check = $(this).validationEngine('validate');
   if(check === false){ return false; }
@@ -7,8 +7,6 @@ $(document).ready(function(){
   var lpassword = $('#lpassword').val();
   if(lemail === ''){  $('#update').html("Il manque un email");$('#update').fadeIn('fast');updatefadeout(); return false; }
   if(lpassword === ''){  $('#update').html("Il manque un mot de passe");$('#update').fadeIn('fast');updatefadeout(); return false; }
-  if( $("#lemail").validationEngine('validateField', "#lemail") === true ){ return false; };
-  if( $("#lpassword").validationEngine('validateField', "#lpassword") === true ){ return false; };
   $.ajax({
        type: 'POST',
        url: 'classes/actions.php',
@@ -23,11 +21,7 @@ $(document).ready(function(){
           if( data.error === false){
              $('#update').html("Vous êtes maintenant connecté");
              updatefadeout();
-             if ($("#word").length > 0){
-               return AddWord();
-             } else {
-               window.location.href = "monprofile.php";
-             }
+             window.location.href = "profile.php";
           }
           if(data.error === true){
             $('#update').html("Erreur sur l'email ou le mot de passe");

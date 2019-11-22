@@ -22,20 +22,20 @@
     }
 </style>
 <div class="login-form">
-    <form action="../classes/actions.php" method="post">
+    <form action="" method="post" id="loginForm">
         <h2 class="text-center">Log in</h2>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" required="required">
+            <input type="text" name="lemail" id="lemail" class="form-control validate[custom[email]]" placeholder="Email" required="required">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required">
+            <input type="password" name="lpassword" id="lpassword" class="form-control validate[minSize[6],maxSize[15]]" placeholder="Password" required="required">
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Log in</button>
         </div>
         <div class="clearfix">
             <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
-            <a href="#" class="pull-right">Forgot Password?</a>
+            <a href="forgot.php" class="pull-right">Forgot Login?</a>
         </div>
     </form>
     <p class="text-center"><a href="signup.php">Create an Account</a></p>
