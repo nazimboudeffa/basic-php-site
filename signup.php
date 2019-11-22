@@ -9,7 +9,7 @@ session_start();
   <body>
     <?php
       if (isset($_SESSION['username'])){
-        echo "Vous êtes connecté";
+        echo "You are connected";
       } else {
         include 'forms/register.php';
       }
