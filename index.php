@@ -1,5 +1,9 @@
 <?php
 session_start();
+global $BasicPHPSite;
+if (!isset($BasicPHPSite)) {
+    $BasicPHPSite = new stdClass;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
