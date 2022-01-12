@@ -19,7 +19,8 @@ $(document).ready(function(){
   // Check the pseudo and email are not already existant
   $.ajax({
     type: 'POST',
-    url: 'classes/actions.php',
+    //url: 'actions.php',
+    url: 'actions/user/register.php',
     data: { 'action' : 'check' , 'email' : values['remail'] , 'username' : values['rusername'], 'password' : values['rpassword'] },
     dataType : 'json',
     beforeSend:function(){
