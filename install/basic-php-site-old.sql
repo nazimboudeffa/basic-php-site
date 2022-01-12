@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 12 jan. 2022 à 22:49
--- Version du serveur :  10.4.17-MariaDB
--- Version de PHP : 7.3.9
+-- Généré le :  sam. 23 nov. 2019 à 00:11
+-- Version du serveur :  10.4.8-MariaDB
+-- Version de PHP :  7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `basic-php-site`
+-- Base de données :  `basic-php-site`
 --
 
 -- --------------------------------------------------------
@@ -28,20 +29,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `users` (
-  `guid` bigint(20) NOT NULL,
-  `id` bigint(50) NOT NULL,
-  `type` text NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `email` text NOT NULL,
-  `password` varchar(65) NOT NULL,
-  `salt` varchar(8) NOT NULL,
-  `first_name` text NOT NULL,
-  `last_name` text NOT NULL,
-  `last_login` int(11) NOT NULL,
-  `last_activity` int(11) NOT NULL,
-  `activation` varchar(32) DEFAULT NULL,
-  `time_created` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL,
+  `id_user` bigint(50) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Index pour les tables déchargées
@@ -51,7 +44,7 @@ CREATE TABLE `users` (
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`guid`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -61,7 +54,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `guid` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
